@@ -23,12 +23,6 @@ eksctl create iamserviceaccount --cluster=$(terraform output -raw cluster_name) 
 
 
 
-
-helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller --set clusterName=$(terraform output -raw cluster_name) --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller -n kube-system
-
-
-#----
-
 #Apply deployment manifest to eks cluster:
 #kubectl apply -f eks-sample-deployment.yaml
 
